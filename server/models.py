@@ -10,7 +10,7 @@ class Restaurant(db.Model):
     name = db.Column(db.String(100), nullable=False)
     address = db.Column(db.String(200), nullable=False)
 
-    # Using a different backref name to avoid conflict
+    
     restaurant_pizza_relations = db.relationship('RestaurantPizza', backref=db.backref('restaurant', lazy=True))
 
     def to_dict(self):
