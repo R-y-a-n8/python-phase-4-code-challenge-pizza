@@ -45,7 +45,7 @@ def get_restaurant(id):
     restaurant = db.session.get(Restaurant, id)
     if restaurant:
         # Get associated pizzas through restaurant_pizzas
-        pizzas = [{
+        restaurant_pizzas = [{
             "id": rp.pizza.id,
             "name": rp.pizza.name,
             "ingredients": rp.pizza.ingredients
@@ -54,7 +54,7 @@ def get_restaurant(id):
             "id": restaurant.id,
             "name": restaurant.name,
             "address": restaurant.address,
-            "pizzas": pizzas
+            "restaurant_pizzas": restaurant_pizzas  # Changed from "pizzas" to "restaurant_pizzas"
         })
     return jsonify({"error": "Restaurant not found"}), 404
 
